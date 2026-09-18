@@ -193,6 +193,21 @@ def chat_completions(request: ChatRequest):
     
     raise HTTPException(status_code=503, detail="All models failed")
 
+@app.get("/health")
+def health_check():
+    return {
+        "status": "healthy",
+        "service": "Adaptive Free LLM API",
+        "version": "1.0.0",
+        "endpoints": {
+            "docs": "/docs",
+            "models": "/v1/models",
+            "chat": "/v1/chat/completions",
+            "health": "/health"
+        },
+        "timestamp": datetime.now().isoformat()
+    }
+
 @app.get("/")
 def root():
     return {"message": "Adaptive Free LLM API", "docs": "/docs", "models": "/v1/models"}
