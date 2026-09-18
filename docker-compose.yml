@@ -1,0 +1,11 @@
+services:
+  freeaiapi:
+    build: .
+    container_name: freeaiapi
+    ports:
+      - "0.0.0.0:8000:8000"
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1

@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+g4f
+smartg4f
+pydantic
+requests
